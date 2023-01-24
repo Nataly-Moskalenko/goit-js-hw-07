@@ -12,7 +12,7 @@ function createImageCardsMarkup(images) {
     return `
  <li>
  <a class="gallery__item" href="${original}">
-   <img class="gallery__image" src="${preview}" alt="${description}" />
+   <img class="gallery__image" src="${preview}" alt="${description}" title="${description}"/>
  </a>
 </li>
 `;
@@ -21,9 +21,12 @@ function createImageCardsMarkup(images) {
 
 function onGalleryContainerClick(event) {
   if (!event.target.classList.contains('gallery__image')) {
-  return;
+    return;
   }
+  
   event.preventDefault();
-  const srcOriginal = event.target.dataset.source;
-  new SimpleLightbox('.gallery a', { /* options */ }); 
-  };
+  let gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, });
+  gallery.on('closed.simplelightbox', function () {
+    gallery.destroy();
+  });
+};

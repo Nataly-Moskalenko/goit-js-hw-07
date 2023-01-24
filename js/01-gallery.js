@@ -32,9 +32,9 @@ function onGalleryContainerClick(event) {
   const srcOriginal = event.target.dataset.source;
   basicLightbox.create(`
     <img src="${srcOriginal}" width="1280px">
-  `).show()
-
-  // const swatchEl = event.target;
+  `).show()  
+};
+// const swatchEl = event.target;
   // const parentImageCard = swatchEl.closest('gallery-item');
   // parentImageCard
-};
+// enableKeyboard
