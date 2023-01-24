@@ -30,11 +30,15 @@ function onGalleryContainerClick(event) {
   }
   event.preventDefault();
   const srcOriginal = event.target.dataset.source;
-  basicLightbox.create(`
+  const instance = basicLightbox.create(`
     <img src="${srcOriginal}" width="1280px">
-  `).show()  
+  `);
+  instance.show();
+
+  document.addEventListener("keydown", event => {
+    event.preventDefault();
+    if (event.code === 'Escape') {
+      instance.close();
+    }    
+});
 };
-// const swatchEl = event.target;
-  // const parentImageCard = swatchEl.closest('gallery-item');
-  // parentImageCard
-// enableKeyboard

@@ -23,9 +23,14 @@ function onGalleryContainerClick(event) {
   if (!event.target.classList.contains('gallery__image')) {
     return;
   }
-  
+
   event.preventDefault();
   let gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, });
+  // gallery.on('show.simplelightbox', function () {
+  //   const swatchEl = event.target;
+  //   const parentImageCard = swatchEl.closest('gallery-item');
+  //   swatchEl.src = parentImageCard.href;
+  // });
   gallery.on('closed.simplelightbox', function () {
     gallery.destroy();
   });
