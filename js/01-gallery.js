@@ -6,7 +6,6 @@ const cardsMarkup = createImageCardsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', cardsMarkup);
 galleryContainer.addEventListener('click', onGalleryContainerClick);
 
-
 function createImageCardsMarkup(images) {
   return images.map(({ preview, original, description }) => {
     return `
