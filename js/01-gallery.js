@@ -30,7 +30,7 @@ function onGalleryContainerClick(event) {
   event.preventDefault();
   const srcOriginal = event.target.dataset.source;
   const instance = basicLightbox.create(`
-    <img src="${srcOriginal}" width="1280px">
+    <img src="${srcOriginal}" width="1280px" />
   `);
   instance.show();
 

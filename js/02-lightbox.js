@@ -4,7 +4,6 @@ const galleryContainer = document.querySelector('.gallery');
 const cardsMarkup = createImageCardsMarkup(galleryItems);
 
 galleryContainer.insertAdjacentHTML('beforeend', cardsMarkup);
-galleryContainer.addEventListener('click', onGalleryContainerClick);
 
 function createImageCardsMarkup(images) {
   return images.map(({ preview, original, description }) => {
@@ -18,14 +17,4 @@ function createImageCardsMarkup(images) {
   }).join('');
 };
 
-function onGalleryContainerClick(event) {
-  if (!event.target.classList.contains('gallery__image')) {
-    return;
-  }
-  event.preventDefault();
-  let gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, });
-  gallery.open();
-  gallery.on('closed.simplelightbox', function () {
-    gallery.destroy();
-  });
-};
+const gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, });
